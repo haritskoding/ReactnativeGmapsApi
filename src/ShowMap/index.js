@@ -40,21 +40,16 @@ export default class ShowMap extends Component {
         super(props)
         this.state = {
             region: {
-
                 latitudeDelta: 0.0222,
                 longitudeDelta: 0.0321,
-                latitude: -6.2223669,
+                latitude: -6.2229669,
                 longitude: 106.8494566,
             }
         }
     }
 
 
-    onChangeValue = region => {
-        this.setState({
-            region
-        })
-    }
+
 
     render() {
         return (
@@ -63,7 +58,7 @@ export default class ShowMap extends Component {
                     // provider={PROVIDER_GOOGLE}
                     style={styles.map}
                     initialRegion={this.state.region}
-                    onRegionChangeComplete={this.onChangeValue}
+                    onRegionChangeComplete={this.props.onChangeValue}
                 // initialRegion={{
 
                 //   latitude: -6.2898426,
@@ -74,52 +69,55 @@ export default class ShowMap extends Component {
                 >
 
                     {/* {
-            locations.map(marker => (
-              <Polygon fillColor={'#A3BE80'} coordinates={locations} />
+                        locations.map(marker => (
+                            <Polygon fillColor={'#A3BE80'} coordinates={locations} />
 
-              // <Circle center={{latitude: marker.latitude, longitude: marker.longitude}} radius= {550}
-              // fillColor = {'#A3BE80'} />
-            ))
-          } */}
+                            // <Circle center={{latitude: marker.latitude, longitude: marker.longitude}} radius= {550}
+                            // fillColor = {'#A3BE80'} />
+                        ))
+                    } */}
 
 
 
-                    {/* <Heatmap points={locations} />
+                    {/* <Heatmap points={locations} /> */}
 
-          {
-            locations.map(marker => (
-              <Marker
-                coordinate={{
-                  latitude: marker.latitude,
-                  longitude: marker.longitude
-                }}
-              >
+                    {/* {
+                        locations.map(marker => (
+                            <Marker
+                                coordinate={{
+                                    latitude: marker.latitude,
+                                    longitude: marker.longitude
+                                }}
+                            >
 
-                <CustomMarker item={marker} />
-              </Marker>
-            ))
-          } */}
+                                <CustomMarker item={marker} />
+                            </Marker>
+                        ))
+                    } */}
 
-                    <View style={{
-                        top: '50%',
-                        left: '50%',
-                        marginLeft: -24,
-                        marginTop: -48,
-                        position: 'absolute',
 
-                    }}>
-                        {/* <Image
+                </MapView>
+                <View style={{
+                    top: '50%',
+                    left: '50%',
+                    marginLeft: -24,
+                    marginTop: -48,
+                    zIndex: 1,
+                    position: 'absolute',
+
+                }}>
+
+                    <Image
+                        style={{ width: 50, height: 50 }}
+                        source={require('../assets/marker.png')}
+
+                    />
+
+                    {/* <Image
               source={{ uri: 'https://pbs.twimg.com/profile_images/486929358120964097/gNLINY67_400x400.png' }}
               style={{ width: 500, height: 500 }}
             /> */}
-                        <Image
-                            style={{ width: 100, height: 100 }}
-                            source={require('../assets/jc.png')}
-
-                        />
-
-                    </View>
-                </MapView>
+                </View>
             </View>
         )
     }
